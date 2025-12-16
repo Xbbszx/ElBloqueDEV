@@ -10,7 +10,7 @@ session_start();
 </head>
 <body>
 <h1>ForoPayos</h1>
-<form action="" method="POST">
+<form action="./login/login-conf.php" method="POST">
     <h3>Iniciar sesión</h3>
 
     <?php

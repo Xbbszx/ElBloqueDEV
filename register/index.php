@@ -10,7 +10,7 @@ session_start();
 </head>
 <body>
 <h1>ForoPayos</h1>
-<form action="" method="POST">
+<form action="./register-conf.php" method="POST">
     <h3>Crear cuenta</h3>
 
     <?php
