@@ -28,16 +28,13 @@ CREATE TABLE IF NOT EXISTS `post` (
   KEY `Índice 1` (`id_post`),
   KEY `FK__usuarios` (`id_usuario`),
   CONSTRAINT `FK__usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla foropayos.post: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla foropayos.post: ~0 rows (aproximadamente)
 INSERT INTO `post` (`id_post`, `id_usuario`, `fecha_publicacion`, `info`) VALUES
-	(1, 5, '0000-00-00 00:00:00', 'Hola como estas pedazo de mierdas'),
 	(2, 6, '2025-04-12 23:00:00', 'callate puto paruano de glovo'),
-	(3, 5, '2025-12-16 11:45:32', 'callate peruano'),
-	(4, 5, '2025-12-16 11:45:40', 'puta\r\n'),
 	(5, 6, '2025-12-16 11:45:51', 'cerda de mierda\r\n'),
-	(6, 5, '2025-12-16 15:13:38', 'hola como estas pedazo de mena\r\n');
+	(7, 6, '2025-12-16 15:47:39', 'poya\r\n');
 
 -- Volcando estructura para tabla foropayos.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
@@ -45,13 +42,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `usuario` varchar(100) NOT NULL,
   `correo` varchar(100) NOT NULL,
   `contra` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `seguidores` int(11) NOT NULL DEFAULT '0',
+  `seguidos` int(11) NOT NULL DEFAULT '0',
   KEY `Índice 1` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla foropayos.usuarios: ~2 rows (aproximadamente)
-INSERT INTO `usuarios` (`id_user`, `usuario`, `correo`, `contra`) VALUES
-	(5, 'adri', 'adri@gmail.com', '$2y$10$gaus6AGWDd7ZZ6F8Wzf0DOOmD/bXtCDvJtKhUf/JNi83YWisTAe6m'),
-	(6, 'payo', 'payo@gmail.com', '$2y$10$NGmIj39EzmeFDtc5iGepbuBEbFjKuko0MvXm/8Qac8WBB7FVTMHgm');
+INSERT INTO `usuarios` (`id_user`, `usuario`, `correo`, `contra`, `seguidores`, `seguidos`) VALUES
+	(5, 'adri', 'adri@gmail.com', '$2y$10$gaus6AGWDd7ZZ6F8Wzf0DOOmD/bXtCDvJtKhUf/JNi83YWisTAe6m', 1000215, 454521),
+	(6, 'payo', 'payo@gmail.com', '$2y$10$NGmIj39EzmeFDtc5iGepbuBEbFjKuko0MvXm/8Qac8WBB7FVTMHgm', 0, 0),
+	(7, 'test', 'test@gmail.com', '$2y$10$FmzZ2HzUFw/zfWZZCqtnd.KWyeXDbSrY6cdPBwrROCPiN173K1w8u', 0, 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

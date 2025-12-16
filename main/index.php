@@ -10,7 +10,7 @@ $nfilas = mysqli_num_rows ($res);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar Sesión - ForoPayos</title>
+    <title>Inicio - ForoPayos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -18,8 +18,8 @@ $nfilas = mysqli_num_rows ($res);
 <h1>ForoPayos</h1>
 <hr>
 <h1>@<?php print $_SESSION['user'] ?></h1>
+<a href='../perfiles/perfil.php'><button>Mi perfil</button></a>
 <a href='../funciones/logout.php'><button>Cerrar sesión</button></a>
-
 <hr>
 <?php
     if (ISSET($_SESSION['error']))
@@ -37,12 +37,14 @@ for ($i=0; $i<$nfilas; $i++)
     $row = mysqli_fetch_assoc($res);
     if ($row['id_usuario'] == $tuid) 
     {
-        print "@" . $row['usuario'] . "<br>";
-        print $row['info'] . "<a href ='../funciones/borrar_post.php'><button name='postbar' value=" . $row['id_post'] . ">borrar</button></a><br><br>";
+        print "<form method='post' action='../funciones/borrar_post.php'>";
+        print "<a href='../perfiles/perfil.php'>@" . $row['usuario'] . "</a><br>";
+        print $row['info'] . " <button type='submit' name='postbar' value='" . $row['id_post'] . "'>borrar</button><br><br>";
+        print "</form>";
     }
     else
     {
-        print "@" . $row['usuario'] . "<br>";
+        print "<a href='../perfiles/perfiles.php'>@" . $row['usuario'] . "</a><br>";
         print $row['info'] . "<br><br>";   
     }
     
